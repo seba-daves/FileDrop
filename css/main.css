@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'Segoe UI Var';
+    src: url('./segoeui.ttf');
+}
+*{
+    font-family: 'Segoe UI Var';
+}
+.quickactions{
+    text-decoration: none;
+}
+.file-info{
+    display: inline-block;
+    min-width: 180px;
+}
+.common{
+    border-radius: 8px;
+    transition-duration: 1s;
+    cursor: pointer;
+}
+.common:hover{
+    transition-duration: 1s;
+    background-color: rgb(235, 235, 235);
+}
+.email-share-form{
+    max-width: 300px;
+    margin: auto;
+}
+.email-share-form input{
+    margin-left: 10px;
+    max-width: 280px;
+}
+.user-tip{
+    position: absolute;
+    float: right;
+    right: 0px;
+    border-radius: calc(8 * 1px);
+    margin-right: 7px;
+    margin-top: 7px;
+    max-width: 200px;
+    min-width: 200px;
+    min-height: 200px;
+    background: #ffff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 calc(32 * 0.5px) calc((32 * 1px)) rgba(0, 0, 0, 0.24);
+}
+.tip-item{
+    min-width: 95%;
+    margin-top: 3px;
+    float: left;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 1.5px;
+    transition-duration: 1s;
+    border-radius: calc(8 * 1px);
+}
+.tip-item-inside{
+    user-select: none;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: default;
+}
+.tip-item:hover{
+    transition-duration: 1s;
+    border-radius: calc(8 * 1px);
+    background: #f3f3f3;
+}
+.tip-split{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    float: left;
+    height: 1px;
+    color: gray;
+}
+.no-high:hover{
+    background: #ffff;
+}
+.xtra-bottom{
+    margin-bottom: 5px;
+}
+.bootfont{
+    font-family: var(--bs-body-font-family);
+}
+.hidden-file{
+    opacity: 70%;
+}
+.drop-shadow{
+    z-index: 1000;
+    position: absolute;
+    background-color: black;
+    opacity: 85%;
+    min-width: 100%;
+    min-height: 100vh;
+}
+.security-info-card{
+    min-width: 200px;
+    margin-top: 100px;
+    max-width: 600px;
+    min-height: 200px;
+    z-index: 1001;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 calc(32 * 0.5px) calc((32 * 1px)) rgba(0, 0, 0, 0.24);
+    border-radius: calc(8 * 1px);
+}
+.security-closing{
+    min-width: 100%;
+    min-height: 24px;
+    border-bottom: 1px solid rgb(165, 165, 165) ;
+}
+.security-page-title{
+    user-select: none;
+    float: left;
+    margin-left: 5px ;
+}
+.security-closing-color{
+    cursor: pointer;
+    float: right;
+    width: 30px;
+    background-color: crimson;
+    user-select: none;
+    color: white;
+}
+.spacer-security{
+    min-width: 100%;
+    min-height: 50px;
+}
+.sharing{
+    margin-top: 5px;
+}
+.qr-edit img{
+    width: 180px;
+    margin: auto;
+}

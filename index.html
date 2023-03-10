@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" href="./aapl.png" />  
+    <meta name="apple-mobile-web-app-title" content="FileDrop">      
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="icon" href="./favicon.ico">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/qrcode.min.js"></script>
+    <script src="./js/jquery.toast.min.js"></script>
+    <link rel="stylesheet" href="./css/jquery.toast.min.css">
+    <script src="./js/main.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <title>FileDrop</title>
+  </head>
+  <body onload="CheckVariables();">
+    <div hidden id="qr" class="security-info-card">
+      <div class="security-closing">
+        <div class="security-document">
+          <br/>
+          <br/>
+          <div class="email-share-form qr-edit" id="qr-area">
+            <br/>
+            <p></p>
+        </div>
+        <br/>
+        <button type="button" onclick="QR(0)" class="btn btn-dark">OK</button>
+          <br/>
+          <!--
+          <hr style="width: 100%;">
+          <br/>
+          <svg width="35" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 5A3.25 3.25 0 0 0 2 8.25v7.5A3.25 3.25 0 0 0 5.25 19h13.5A3.25 3.25 0 0 0 22 15.75v-7.5A3.25 3.25 0 0 0 18.75 5H5.25Zm1.03 5.22.72.72.72-.72a.75.75 0 1 1 1.06 1.06l-.719.72.72.718A.75.75 0 1 1 7.72 13.78L7 13.06l-.72.72a.75.75 0 0 1-1.06-1.06l.72-.72-.72-.72a.75.75 0 0 1 1.06-1.06Zm5.5 0 .72.72.72-.72a.75.75 0 1 1 1.06 1.06l-.719.72.72.718a.75.75 0 1 1-1.061 1.061l-.72-.719-.72.72a.75.75 0 1 1-1.06-1.06l.72-.72-.72-.72a.75.75 0 0 1 1.06-1.06Zm3.97 4.03a.75.75 0 0 1 .75-.75h1.75a.75.75 0 0 1 0 1.5H16.5a.75.75 0 0 1-.75-.75Z" fill="#212121"/></svg>
+          <h2>Change Password</h2>
+          <br/>
+  -->
+          <div class="spacer-security">
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div hidden id="mail-ask" class="security-info-card">
+      <div class="security-closing">
+        <div class="security-document">
+          <br/>
+          <img width="50" fill="none" src="./img/mail.png" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"></img>
+          <br/>
+          <h2>Share via Email</h2>
+          <br/>
+          <div class="email-share-form" id="mail-share">
+            <div class="form-group">
+                <p></p>
+                <label for="exampleInputEmail1">Send To:</label>
+                <p></p>
+                <p></p>
+                <input type="email" placeholder="example@example.com" class="form-control" id="share-mail-input" aria-describedby="emailHelp">
+            </div>
+            <br/>
+            <p></p>
+        </div>
+        <br/>
+        <button type="button" onclick="ShowMail(0)" class="btn btn-dark">Cancel</button>
+        <button id="send" class="btn btn-primary" onclick="ShareMail('');">Send</button>
+          <br/>
+          <!--
+          <hr style="width: 100%;">
+          <br/>
+          <svg width="35" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 5A3.25 3.25 0 0 0 2 8.25v7.5A3.25 3.25 0 0 0 5.25 19h13.5A3.25 3.25 0 0 0 22 15.75v-7.5A3.25 3.25 0 0 0 18.75 5H5.25Zm1.03 5.22.72.72.72-.72a.75.75 0 1 1 1.06 1.06l-.719.72.72.718A.75.75 0 1 1 7.72 13.78L7 13.06l-.72.72a.75.75 0 0 1-1.06-1.06l.72-.72-.72-.72a.75.75 0 0 1 1.06-1.06Zm5.5 0 .72.72.72-.72a.75.75 0 1 1 1.06 1.06l-.719.72.72.718a.75.75 0 1 1-1.061 1.061l-.72-.719-.72.72a.75.75 0 1 1-1.06-1.06l.72-.72-.72-.72a.75.75 0 0 1 1.06-1.06Zm3.97 4.03a.75.75 0 0 1 .75-.75h1.75a.75.75 0 0 1 0 1.5H16.5a.75.75 0 0 1-.75-.75Z" fill="#212121"/></svg>
+          <h2>Change Password</h2>
+          <br/>
+  -->
+          <div class="spacer-security">
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div hidden id="delete-ask" class="security-info-card">
+      <div class="security-closing">
+        <div class="security-document">
+          <br/>
+          <img width="50" fill="none" src="./img/delete.png" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"></img>
+          <br/>
+          <br/>
+          <h2>Are You Sure?</h2>
+          <br/>
+          <button type="button" onclick="AskDelete(0)" class="btn btn-dark"> No </button>
+          <button type="button" id="doDelete" class="btn btn-danger">Yes</button>
+          <br/>
+          <!--
+          <hr style="width: 100%;">
+          <br/>
+          <svg width="35" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 5A3.25 3.25 0 0 0 2 8.25v7.5A3.25 3.25 0 0 0 5.25 19h13.5A3.25 3.25 0 0 0 22 15.75v-7.5A3.25 3.25 0 0 0 18.75 5H5.25Zm1.03 5.22.72.72.72-.72a.75.75 0 1 1 1.06 1.06l-.719.72.72.718A.75.75 0 1 1 7.72 13.78L7 13.06l-.72.72a.75.75 0 0 1-1.06-1.06l.72-.72-.72-.72a.75.75 0 0 1 1.06-1.06Zm5.5 0 .72.72.72-.72a.75.75 0 1 1 1.06 1.06l-.719.72.72.718a.75.75 0 1 1-1.061 1.061l-.72-.719-.72.72a.75.75 0 1 1-1.06-1.06l.72-.72-.72-.72a.75.75 0 0 1 1.06-1.06Zm3.97 4.03a.75.75 0 0 1 .75-.75h1.75a.75.75 0 0 1 0 1.5H16.5a.75.75 0 0 1-.75-.75Z" fill="#212121"/></svg>
+          <h2>Change Password</h2>
+          <br/>
+  -->
+          <div class="spacer-security">
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div hidden class="security-info-card" id="security-info-card">
+      <div class="security-closing">
+        <div class="security-page-title">
+          Security Info
+        </div>
+        <div onclick="SecInfo()" class="security-closing-color">
+          X
+        </div>
+      </div>
+      <div class="security-document">
+        <br/>
+        <img width="50" fill="none" src="./img/key.png" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"></img>
+        <br/>
+        <h2>Last 5 Logins:</h2>
+        <br/>
+        <table style="max-width: 95%;margin: auto;" class="table">
+          <thead>
+            <tr>
+              <th scope="col">IP</th>
+              <th scope="col">Location & ISP</th>
+              <th scope="col">Info</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody id="security-table-access">
+          </tbody>
+        </table>
+        <br/>
+        <hr style="width: 100%;">
+        <br/>
+        <svg width="35" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.354v6.651l7.442-.001L17.72 9.28a.75.75 0 0 1-.073-.976l.073-.084a.75.75 0 0 1 .976-.073l.084.073 2.997 2.997a.75.75 0 0 1 .073.976l-.073.084-2.996 3.004a.75.75 0 0 1-1.134-.975l.072-.085 1.713-1.717-7.431.001L12 19.25a.75.75 0 0 1-.88.739l-8.5-1.502A.75.75 0 0 1 2 17.75V5.75a.75.75 0 0 1 .628-.74l8.5-1.396a.75.75 0 0 1 .872.74ZM8.502 11.5a1.002 1.002 0 1 0 0 2.004 1.002 1.002 0 0 0 0-2.004Z" fill="#212121"/><path d="M13 18.501h.765l.102-.006a.75.75 0 0 0 .648-.745l-.007-4.25H13v5.001ZM13.002 10 13 8.725V5h.745a.75.75 0 0 1 .743.647l.007.102.007 4.251h-1.5Z" fill="#212121"/></svg>
+        <h2>Logout from Every Device</h2>
+        <br/>
+        <button type="button" class="btn btn-light" onclick="parent.location='./api/?action=revokesessions'">Logout From Every Device</button>
+        <br/>
+        <!--
+        <hr style="width: 100%;">
+        <br/>
+        <svg width="35" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 5A3.25 3.25 0 0 0 2 8.25v7.5A3.25 3.25 0 0 0 5.25 19h13.5A3.25 3.25 0 0 0 22 15.75v-7.5A3.25 3.25 0 0 0 18.75 5H5.25Zm1.03 5.22.72.72.72-.72a.75.75 0 1 1 1.06 1.06l-.719.72.72.718A.75.75 0 1 1 7.72 13.78L7 13.06l-.72.72a.75.75 0 0 1-1.06-1.06l.72-.72-.72-.72a.75.75 0 0 1 1.06-1.06Zm5.5 0 .72.72.72-.72a.75.75 0 1 1 1.06 1.06l-.719.72.72.718a.75.75 0 1 1-1.061 1.061l-.72-.719-.72.72a.75.75 0 1 1-1.06-1.06l.72-.72-.72-.72a.75.75 0 0 1 1.06-1.06Zm3.97 4.03a.75.75 0 0 1 .75-.75h1.75a.75.75 0 0 1 0 1.5H16.5a.75.75 0 0 1-.75-.75Z" fill="#212121"/></svg>
+        <h2>Change Password</h2>
+        <br/>
+-->
+        <div class="spacer-security">
+
+        </div>
+      </div>
+    </div>
+    <div class="drop-shadow" hidden id="security-shadow">
+    </div>
+    <div class="over-load" id="over">
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand bootfont" href="#">
+              <img src="./favicon.png" width="40px">
+              FileDrop
+          </a>
+          <svg style="cursor: pointer;" onclick="Show('user-tip')" width="30" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.04 5.493a3 3 0 1 1 5.919.002l2.432-.908a2.359 2.359 0 0 1 1.766 4.372L16 10.335v3.11l1.883 5.467a2.316 2.316 0 0 1-4.365 1.549l-1.515-4.148-1.512 4.15a2.32 2.32 0 0 1-4.373-1.55L8 13.457v-3.12L4.694 8.884A2.35 2.35 0 0 1 6.46 4.53l2.58.962Zm1.46-.495a1.5 1.5 0 0 0 .896 1.373 1.75 1.75 0 0 0 1.187.01A1.5 1.5 0 1 0 10.5 4.997Zm.33 2.763L5.937 5.936a.85.85 0 0 0-.64 1.574l3.755 1.653a.75.75 0 0 1 .448.686v3.735a.75.75 0 0 1-.04.245L7.535 19.4a.82.82 0 0 0 1.545.549l1.65-4.527c.433-1.186 2.11-1.187 2.544 0l1.652 4.523a.816.816 0 0 0 1.538-.546l-1.924-5.584a.752.752 0 0 1-.04-.245V9.843a.75.75 0 0 1 .45-.688l3.607-1.57a.859.859 0 0 0-.643-1.592l-4.78 1.783c-.35.143-.733.222-1.135.222a2.99 2.99 0 0 1-1.17-.237Z" fill="#212121"/>
+          </svg>
+          </div>
+        </div>
+    </nav>
+    <div class="user-tip" id="user-tip" hidden>
+      <div class="tip-item">
+        <p class="tip-item-inside" onclick="parent.location='./login.html'">
+          Login
+        </p>
+      </div>
+      <div class="tip-item">
+        <p class="tip-item-inside" onclick="parent.location='./api/?action=logout'">
+          Logout
+        </p>
+      </div>
+      <hr class="tip-split">
+      <div class="tip-item">
+        <p onclick="ShowHidden()" class="tip-item-inside">
+          Show/Hide Hidden Files
+        </p>
+      </div>
+      <div class="tip-item">
+        <p onclick="NewNote()" class="tip-item-inside">
+          New Note
+        </p>
+      </div>
+      <hr class="tip-split">
+      <div class="tip-item no-high">
+        <p id="occ-space" class="tip-item-inside">
+        </p>
+      </div>
+      <hr class="tip-split">
+      <div class="tip-item xtra-bottom">
+        <p class="tip-item-inside" onclick="SecInfo()">
+          Security Info
+        </p>
+      </div>
+    </div>
+    <div style="width: 100%;min-height: 50vh;text-align: center;">
+      <img src="./favicon.png" width="60px" style="margin-top: 25vh;">
+      <br/>
+      <br/>
+      <div style="max-width: 100px; margin: auto;" class="mb-3">
+          <form enctype="multipart/form-data" onsubmit="event.preventDefault();Upload();" id="fileform" action="./api/index.php" method="POST">
+              <input type="hidden" name="action" value="upload">
+              <input ondrop="ShowUpload();" onchange="ShowUpload();" id="fileupload" required class="form-control" name="file" type="file">
+              <br/>
+              <button id="upload" style="visibility:hidden;height:0px" type="submit" class="btn btn-light">Upload!</button>
+          </form>
+      </div>
+      <h2>Drop Your File for Upload</h2>
+      <h5 id="link"></h5>
+    </div>
+    <br/>
+    <br/>
+    <div style="width: 100%;text-align: center;">
+      <div id="files" style="margin: auto;">
+
+      </div>
+      <br/>
+      <br/>
+    </div>
+  </body>
+</html>
