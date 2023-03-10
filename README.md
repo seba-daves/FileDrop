@@ -19,5 +19,5 @@
 * MySQL (Database)
 
 ## Installation Process
-* Clone this repository with ```console git clone "https://github.com/seba-daves/FileDrop/" ```
+* Clone this repository with ```git clone "https://github.com/seba-daves/FileDrop/" ```
 
