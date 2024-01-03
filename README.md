@@ -1,6 +1,7 @@
 # FileDrop
 
 ## Overview
+Warning! FileDrop is currently being completely rewritten, this version is just a proof of concept
 ### FileDrop is a simple private hosting file manager with sharing capabilities
 
 ## Features
